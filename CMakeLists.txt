@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.17)
+project(TrabalhoPOO)
+
+set(CMAKE_CXX_STANDARD 20)
+
+add_executable(TrabalhoPOO main.cpp Interface.cpp Interface.h mundo.cpp Mundo.h Territorio.cpp Territorio.h)

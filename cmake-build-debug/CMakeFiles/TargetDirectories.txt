@@ -1,0 +1,3 @@
+C:/Users/diogo/CLionProjects/TrabalhoPOO/cmake-build-debug/CMakeFiles/TrabalhoPOO.dir
+C:/Users/diogo/CLionProjects/TrabalhoPOO/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/diogo/CLionProjects/TrabalhoPOO/cmake-build-debug/CMakeFiles/rebuild_cache.dir
