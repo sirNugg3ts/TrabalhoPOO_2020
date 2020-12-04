@@ -13,7 +13,11 @@ int main(){
     mundo.criaTerritorioInicial();
 
     //cria interface
-    Interface interface = Interface(mundo);
+    Interface* interface = new Interface(mundo);
+
+    interface->run(mundo);
+
+    delete interface;
 
     
 

@@ -5,33 +5,27 @@
 #include <sstream>
 
 void Interface::apresentaListaComandos() {
-    //todo
-}
-void processaComando(istringstream &ssin,Mundo& mundo){
-    string comando;
-    ssin >> comando;
-
-    if(comando == "cria"){
-        string tipo;
-        int n;
-        ssin >> tipo;
-        ssin >> n;
-
-        mundo.criaTerritorio(tipo,n);
-
-
-
+    if (stage==0){
+        cout << "Comandos disponíveis:" << endl;
+        cout << "cria *tipo de territorio* *numero de territorios*" <<endl;
+        cout << "carrega *nomeFicheiro*" << endl;
+        cout << "lista <nomeTerritorio>" << endl;
+        cout << "sair" << endl;
+        cout << "Comando: ";
     }
 }
 
-Interface::Interface(Mundo& mundo){
-
+int Interface::run(Mundo& mundo){
     //apresentar lista de comandos
     apresentaListaComandos();
 
-    //DEBUG
-    processaFicheiro("teste.txt",mundo);
+    //receber o comando e processar o mesmo
+    processaComando(mundo);
+}
 
+
+Interface::Interface(Mundo& mundo){
+    stage=0;
 }
 void Interface::processaFicheiro(const string &nomeFicheiro, Mundo &mundo) {
     //abrir o ficheiro
@@ -60,10 +54,50 @@ void Interface::processaFicheiro(const string &nomeFicheiro, Mundo &mundo) {
     }
 }
 
-Interface::~Interface() {
+void Interface::processaComando(Mundo& mundo){
 
+    string comando;
+    getline(cin,comando);
+    stringstream ss(comando);
+    ss >> comando;
+
+    if(comando == "cria"){
+        string tipo;
+        int n;
+        ss >> tipo;
+        ss >> n;
+
+        mundo.criaTerritorio(tipo,n);
+    }else if(comando == "carrega"){
+        string nomeFicheiro;
+        ss >> nomeFicheiro;
+        Interface::processaFicheiro(nomeFicheiro,mundo);
+    }else if(comando == "sair"){
+
+    }
 }
 
+void Interface::processaComando(istringstream& iss,Mundo& mundo){
 
+    string comando;
+    getline(iss,comando);
+    stringstream ss(comando);
+    ss >> comando;
 
+    if(comando == "cria"){
+        string tipo;
+        int n;
+        ss >> tipo;
+        ss >> n;
 
+        mundo.criaTerritorio(tipo,n);
+    }else if(comando == "carrega"){
+        string nomeFicheiro;
+        ss >> nomeFicheiro;
+        Interface::processaFicheiro(nomeFicheiro,mundo);
+    }
+}
+
+Interface::~Interface() {
+    cout << "A terminar..." << endl;
+}
