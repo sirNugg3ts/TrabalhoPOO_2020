@@ -4,6 +4,7 @@
 #include <vector>
 #include "Territorio.h"
 
+
 using namespace std;
 
 class Mundo{
@@ -13,10 +14,15 @@ private:
 
 public:
     Mundo();
+    string lista();
     ~Mundo();
+    //void criaTerritorioInicial();
+    //void criaTerritorio(const string& tipo,int n);
+    void carrega(string ficheiro);
+
     void criaTerritorioInicial();
+
     void criaTerritorio(const string& tipo,int n);
 
-    string lista();
 };
 #endif

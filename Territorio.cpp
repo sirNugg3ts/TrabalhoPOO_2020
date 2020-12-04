@@ -19,6 +19,7 @@ Territorio::Territorio(const string& tipo){
 		pontos = 1;
 
 		nTerritorioGenerico++;
+		cout << "Territorio '" << nome << "' criado" << endl;
 	}
 	
 }

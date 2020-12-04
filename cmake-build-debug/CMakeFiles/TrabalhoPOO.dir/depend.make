@@ -3,18 +3,18 @@
 
 CMakeFiles/TrabalhoPOO.dir/Interface.cpp.obj: ../Interface.cpp
 CMakeFiles/TrabalhoPOO.dir/Interface.cpp.obj: ../Interface.h
-CMakeFiles/TrabalhoPOO.dir/Interface.cpp.obj: ../Mundo.h
 CMakeFiles/TrabalhoPOO.dir/Interface.cpp.obj: ../Territorio.h
+CMakeFiles/TrabalhoPOO.dir/Interface.cpp.obj: ../mundo.h
 
 CMakeFiles/TrabalhoPOO.dir/Territorio.cpp.obj: ../Territorio.cpp
 CMakeFiles/TrabalhoPOO.dir/Territorio.cpp.obj: ../Territorio.h
 
 CMakeFiles/TrabalhoPOO.dir/main.cpp.obj: ../Interface.h
-CMakeFiles/TrabalhoPOO.dir/main.cpp.obj: ../Mundo.h
 CMakeFiles/TrabalhoPOO.dir/main.cpp.obj: ../Territorio.h
 CMakeFiles/TrabalhoPOO.dir/main.cpp.obj: ../main.cpp
+CMakeFiles/TrabalhoPOO.dir/main.cpp.obj: ../mundo.h
 
-CMakeFiles/TrabalhoPOO.dir/mundo.cpp.obj: ../Mundo.h
 CMakeFiles/TrabalhoPOO.dir/mundo.cpp.obj: ../Territorio.h
 CMakeFiles/TrabalhoPOO.dir/mundo.cpp.obj: ../mundo.cpp
+CMakeFiles/TrabalhoPOO.dir/mundo.cpp.obj: ../mundo.h
 

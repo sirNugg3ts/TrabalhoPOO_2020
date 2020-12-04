@@ -86,9 +86,6 @@
 		<Unit filename="C:/Users/diogo/CLionProjects/TrabalhoPOO/Interface.h">
 			<Option target="TrabalhoPOO"/>
 		</Unit>
-		<Unit filename="C:/Users/diogo/CLionProjects/TrabalhoPOO/Mundo.h">
-			<Option target="TrabalhoPOO"/>
-		</Unit>
 		<Unit filename="C:/Users/diogo/CLionProjects/TrabalhoPOO/Territorio.cpp">
 			<Option target="TrabalhoPOO"/>
 		</Unit>
