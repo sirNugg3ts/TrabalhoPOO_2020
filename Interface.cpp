@@ -19,6 +19,8 @@ void processaComando(istringstream &ssin,Mundo& mundo){
 
         mundo.criaTerritorio(tipo,n);
 
+
+
     }
 }
 
@@ -48,6 +50,8 @@ void Interface::processaFicheiro(const string &nomeFicheiro, Mundo &mundo) {
             istringstream iss(comandoLidoDoFile);
             processaComando(iss,mundo);
         }
+
+        cout << mundo.lista();
 
         ficheiro.close();
     }else{

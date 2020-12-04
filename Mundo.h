@@ -17,5 +17,6 @@ public:
     void criaTerritorioInicial();
     void criaTerritorio(const string& tipo,int n);
 
+    string lista();
 };
 #endif

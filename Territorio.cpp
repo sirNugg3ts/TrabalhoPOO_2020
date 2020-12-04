@@ -26,3 +26,7 @@ Territorio::Territorio(const string& tipo){
 Territorio::~Territorio()
 {
 }
+
+string Territorio::getNome() {
+    return this->nome;
+}

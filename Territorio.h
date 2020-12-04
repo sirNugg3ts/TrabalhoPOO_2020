@@ -23,6 +23,8 @@ public:
 
     Territorio(const string&);
     ~Territorio();
+
+    string getNome();
 };
 
 #endif
