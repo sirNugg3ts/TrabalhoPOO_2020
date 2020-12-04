@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "Territorio.h"
+#include <string>
 
 
 using namespace std;
@@ -10,19 +11,15 @@ using namespace std;
 class Mundo{
 private:
     vector<Territorio*> territorios;
-
-
 public:
     Mundo();
-    string lista();
     ~Mundo();
-    //void criaTerritorioInicial();
-    //void criaTerritorio(const string& tipo,int n);
-    void carrega(string ficheiro);
 
     void criaTerritorioInicial();
-
     void criaTerritorio(const string& tipo,int n);
+
+    string lista(const string& nomeTerritorio);
+    string lista();
 
 };
 #endif
