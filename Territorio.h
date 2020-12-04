@@ -9,20 +9,15 @@ using namespace std;
 
 class Territorio
 {
-private:
     string nome;
     string tipo;
-    int resistencia;
-    int produtosPorTurno;
-    int ouroPorTurno;
-    int pontos;
-
-    int static nTerritorioGenerico;
+    vector<Territorio*> lT;
+    int n;
     
 public:
-
-    Territorio(const string&);
+    Territorio(vector<Territorio*> lT, string tipo, string nome, int n);
+    string getNome();
+    int getN();
     ~Territorio();
 };
-
 #endif
