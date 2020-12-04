@@ -29,6 +29,7 @@ void Interface::apresentaListaComandos() const {
     }
 }
 
+
 void Interface::run(Mundo& mundo){
     while(true){
         if (stage == 0){
@@ -134,4 +135,6 @@ void Interface::processaComandoDoFicheiro(istringstream& iss,Mundo& mundo){
         Interface::processaFicheiro(nomeFicheiro,mundo);
     }
 }
+
+// Comandos de stage 1 -> Execução do jogo (in-game)
 
