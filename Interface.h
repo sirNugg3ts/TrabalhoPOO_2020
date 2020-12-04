@@ -2,7 +2,7 @@
 #define INTERFACE_H
 
 #include <string>
-#include "Mundo.h"
+#include "mundo.h"
 
 /*
  * int stage: 0 - Configuração
@@ -17,23 +17,16 @@ class Interface{
 private:
     int stage;
 
-
 public:
     Interface(Mundo&);
     ~Interface();
-    int run(Mundo &mundo);
+    void run(Mundo &mundo);
 
 private:
     static void processaFicheiro(const string& nomeFicheiro,Mundo& mundo);
-    void apresentaListaComandos();
+    void apresentaListaComandos() const;
 
-    static void processaComando(Mundo &mundo);
-
-    static void processaComando(istringstream &iss, Mundo &mundo);
-
-
+    int processaComando(Mundo &mundo);
+    static void processaComandoDoFicheiro(istringstream &iss, Mundo &mundo);
 };
-
-
-
 #endif 

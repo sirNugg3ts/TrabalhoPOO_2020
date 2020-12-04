@@ -19,6 +19,5 @@ int main(){
 
     delete interface;
 
-    
-
+    exit(EXIT_SUCCESS);
     }
