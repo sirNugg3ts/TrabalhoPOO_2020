@@ -18,13 +18,10 @@ private:
     int pontos;
 
     int static nTerritorioGenerico;
-
-
-
     
 public:
 
-    Territorio(string);
+    Territorio(const string&);
     ~Territorio();
 };
 

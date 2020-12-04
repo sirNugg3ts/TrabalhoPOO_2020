@@ -8,6 +8,8 @@
 
 using namespace std;
 
+int Territorio::nTerritorioGenerico = 0;
+
 int main(){
     Mundo mundo;
 

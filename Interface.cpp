@@ -3,8 +3,9 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-void Interface::apresentaListaComandos() {
 
+void Interface::apresentaListaComandos() {
+    //todo
 }
 void processaComando(istringstream &ssin,Mundo& mundo){
     string comando;
@@ -26,13 +27,16 @@ Interface::Interface(Mundo& mundo){
     //apresentar lista de comandos
     apresentaListaComandos();
 
+    //DEBUG
+    processaFicheiro("teste.txt",mundo);
+
 }
 void Interface::processaFicheiro(const string &nomeFicheiro, Mundo &mundo) {
     //abrir o ficheiro
     ifstream ficheiro;
     ficheiro.open(nomeFicheiro);
 
-    cout << "A ler ficheiro " << nomeFicheiro << "..." << endl;
+    cout << "Vou tentar abrir o ficheiro " << nomeFicheiro << "..." << endl;
 
     if(ficheiro.is_open()){
         //abriu com sucesso
