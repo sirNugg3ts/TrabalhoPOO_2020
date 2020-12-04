@@ -15,7 +15,7 @@ public:
     Mundo();
     ~Mundo();
     void criaTerritorioInicial();
-    void criaTerritorio(string tipo,int n);
+    void criaTerritorio(const string& tipo,int n);
 
 };
 #endif

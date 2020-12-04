@@ -9,16 +9,12 @@ using namespace std;
 class Interface{
 
 public:
-    Interface(Mundo&);
+    explicit Interface(Mundo&);
     ~Interface();
 
 private:
-    static void processaComando(const string& comando,string argumentos[],Mundo& mundo);
     static void processaFicheiro(const string& nomeFicheiro,Mundo& mundo);
     void apresentaListaComandos();
-    static string recebeComando();
-
-
 };
 
 
