@@ -7,7 +7,7 @@
 using namespace std;
 
 Imperio::Imperio(Mundo& mundo) {
-    ConquistaImperio(mundo,"TerritorioInicial");
+    ConquistaTerritorio(mundo,"TerritorioInicial");
     this->armazemProdutos=0;
     this->cofreOuro=0;
     this->tamArmazem = this->tamCofre = 3;
@@ -23,7 +23,7 @@ int Imperio::getProdutosImperio() const {
     return this->armazemProdutos;
 }
 
-int Imperio::ConquistaImperio(Mundo& mundo,const string& nomeTerritorio){
+int Imperio::ConquistaTerritorio(Mundo &mundo, const string &nomeTerritorio){
     //returns: -1 - o territorio nao existe
     //          0 - tentou conquistar um territorio que ja existe
     //          1 - tentativa efetuada com sucesso, siga para a proxima fase

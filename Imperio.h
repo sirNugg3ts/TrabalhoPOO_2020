@@ -13,12 +13,11 @@ private:
     int forcaMilitar,maxForcaMilitar;
 public:
     Imperio(Mundo& mundo);
-    int ConquistaImperio(Mundo& mundo,const string& nomeTerritorio);
+    int ConquistaTerritorio(Mundo& mundo,const string& nomeTerritorio);
     void processaOuroProdutos();
     void compraUnidadeMilitar();
     int getOuroImperio() const;
     int getProdutosImperio() const;
-
     string listai();
 
 };

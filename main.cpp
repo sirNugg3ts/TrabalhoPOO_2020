@@ -1,7 +1,6 @@
 #include "Territorio.h"
 #include "Interface.h"
-#include "Imperio.h"
-#include "mundo.h"
+
 using namespace std;
 
 int Territorio::nTerritorioGenerico = 0;
