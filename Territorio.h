@@ -25,6 +25,12 @@ public:
     ~Territorio();
 
     string getNome();
+    int getResistencia();
+    int getProdutos();
+    int getOuro();
+    int getPontos();
+    bool getConquistado();
+    void setConquistado(bool newState);
 };
 
 #endif

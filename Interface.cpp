@@ -24,6 +24,7 @@ void Interface::apresentaListaComandos() const {
         cout << "Comandos disponiveis:" << endl;
         cout << " - conquista <nomeTerritorio>" << endl;
         cout << " - lista <nomeTerritorio>" << endl;
+        cout << " - listai " << endl;
         cout << " - sair" << endl;
         cout << "Comando: ";
     }
@@ -108,6 +109,8 @@ int Interface::processaComando(Mundo& mundo){
         else{
             cout << mundo.lista();
         }
+    }else if(comando == "listai"){
+        cout << imperio.listai();
     }
     else if(comando == "sair"){
         return 1;

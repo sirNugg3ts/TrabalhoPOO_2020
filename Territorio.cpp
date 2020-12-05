@@ -18,16 +18,34 @@ Territorio::Territorio(const string& tipo){
 		ouroPorTurno = 1;
 		pontos = 1;
 
-		nTerritorioGenerico++;
-		cout << "Territorio '" << nome << "' criado" << endl;
-	}
-	
+        nTerritorioGenerico++;
+        cout << "Territorio '" << nome << "' criado" << endl;
+    }
 }
 
 Territorio::~Territorio()
 {
 }
-
 string Territorio::getNome() {
     return this->nome;
+}
+int Territorio::getResistencia(){
+    return this->resistencia;
+}
+int Territorio::getProdutos(){
+    return this->produtosPorTurno;
+}
+int Territorio::getOuro(){
+    return this->ouroPorTurno;
+}
+int Territorio::getPontos(){
+    return this->pontos;
+}
+
+bool Territorio::getConquistado(){
+    return this->conquistado;
+}
+
+void Territorio::setConquistado(bool newState) {
+    this->conquistado = newState;
 }

@@ -18,7 +18,7 @@ string Mundo::lista() {
     ostringstream buff;
     buff << endl << endl << "Territorios:" <<endl;
     for (Territorio *p : territorios) {
-        buff << contador++ << " Nome: " << p->getNome() << endl;
+        buff << contador++ << " Nome: " << p->getNome() << " | Resistencia: " << p->getResistencia() << " | Produtos por turno: " << p->getProdutos() << " | Ouro por turno: " << p->getOuro() << " | Pontos de vitoria: " << p->getPontos() << endl;
         //todo: acrescentar informação
     }
     return buff.str();
@@ -32,7 +32,7 @@ string Mundo::lista(const string& nomeTerritorio) {
     for (Territorio *p : territorios) {
         if (p->getNome() == nomeTerritorio){
             found = 1;
-            buff << contador++ << " Nome: " << p->getNome() << endl;
+            buff << contador++ << " Nome: " << p->getNome() << " | Resistencia: " << p->getResistencia() << " | Produtos por turno: " << p->getProdutos() << " | Ouro por turno: " << p->getOuro() << " | Pontos de vitoria: " << p->getPontos() << endl;
             //todo: acrescentar informação
         }
     }

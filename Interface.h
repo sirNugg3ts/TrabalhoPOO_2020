@@ -3,7 +3,7 @@
 
 #include <string>
 #include "mundo.h"
-
+#include "Imperio.h"
 /*
  * int stage: 0 - Configuração
  *            1 - In-Game
