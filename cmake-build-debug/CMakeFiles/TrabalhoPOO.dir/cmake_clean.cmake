@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/TrabalhoPOO.dir/Imperio.cpp.obj"
   "CMakeFiles/TrabalhoPOO.dir/Interface.cpp.obj"
   "CMakeFiles/TrabalhoPOO.dir/Territorio.cpp.obj"
   "CMakeFiles/TrabalhoPOO.dir/main.cpp.obj"

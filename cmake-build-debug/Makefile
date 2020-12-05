@@ -142,6 +142,33 @@ TrabalhoPOO/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrabalhoPOO.dir\build.make CMakeFiles/TrabalhoPOO.dir/build
 .PHONY : TrabalhoPOO/fast
 
+Imperio.obj: Imperio.cpp.obj
+
+.PHONY : Imperio.obj
+
+# target to build an object file
+Imperio.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrabalhoPOO.dir\build.make CMakeFiles/TrabalhoPOO.dir/Imperio.cpp.obj
+.PHONY : Imperio.cpp.obj
+
+Imperio.i: Imperio.cpp.i
+
+.PHONY : Imperio.i
+
+# target to preprocess a source file
+Imperio.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrabalhoPOO.dir\build.make CMakeFiles/TrabalhoPOO.dir/Imperio.cpp.i
+.PHONY : Imperio.cpp.i
+
+Imperio.s: Imperio.cpp.s
+
+.PHONY : Imperio.s
+
+# target to generate assembly for a file
+Imperio.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrabalhoPOO.dir\build.make CMakeFiles/TrabalhoPOO.dir/Imperio.cpp.s
+.PHONY : Imperio.cpp.s
+
 Interface.obj: Interface.cpp.obj
 
 .PHONY : Interface.obj
@@ -259,6 +286,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... TrabalhoPOO
+	@echo ... Imperio.obj
+	@echo ... Imperio.i
+	@echo ... Imperio.s
 	@echo ... Interface.obj
 	@echo ... Interface.i
 	@echo ... Interface.s

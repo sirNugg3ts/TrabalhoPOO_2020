@@ -9,14 +9,15 @@ Territorio::Territorio(const string& tipo){
     	produtosPorTurno= 1;
     	ouroPorTurno = 1;
     	pontos = 0;
-	}else if (tipo == "TerritorioGenerico")
-	{
-		nome = "TerritorioGenerico" + std::to_string(nTerritorioGenerico);
-		this->tipo = "Territorio Generico";
-		resistencia = 1;
-		produtosPorTurno = 1;
-		ouroPorTurno = 1;
-		pontos = 1;
+    	conquistado = 0;
+	}else if (tipo == "TerritorioGenerico") {
+        nome = "TerritorioGenerico" + std::to_string(nTerritorioGenerico);
+        this->tipo = "Territorio Generico";
+        resistencia = 6;
+        produtosPorTurno = 1;
+        ouroPorTurno = 1;
+        pontos = 1;
+        conquistado = 0;
 
         nTerritorioGenerico++;
         cout << "Territorio '" << nome << "' criado" << endl;

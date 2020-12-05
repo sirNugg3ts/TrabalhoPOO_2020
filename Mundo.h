@@ -2,16 +2,15 @@
 #define MUNDO_H
 
 #include <vector>
-#include "Territorio.h"
 #include <string>
-
-
+#include "Territorio.h"
 using namespace std;
 
 class Mundo{
 private:
-    vector<Territorio*> territorios;
+
 public:
+    vector<Territorio*> territorios;
     Mundo();
     ~Mundo();
 
@@ -21,5 +20,6 @@ public:
     string lista(const string& nomeTerritorio);
     string lista();
 
+    Territorio* devolvePonteiroTerritorio(const string& nomeTerritorio);
 };
 #endif

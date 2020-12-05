@@ -1,5 +1,6 @@
 #include "Mundo.h"
 #include <sstream>
+#include "Imperio.h"
 
 Mundo::Mundo(){}
 Mundo::~Mundo(){}
@@ -40,4 +41,13 @@ string Mundo::lista(const string& nomeTerritorio) {
         cerr << "Territorio nao encontrado" << endl;
     }
     return buff.str();
+}
+
+
+Territorio* Mundo::devolvePonteiroTerritorio(const string& nomeTerritorio){
+    for(Territorio *p : territorios){
+        if(p->getNome() == nomeTerritorio)
+            return p;
+    }
+    return nullptr;
 }

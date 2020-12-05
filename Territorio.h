@@ -16,12 +16,13 @@ private:
     int produtosPorTurno;
     int ouroPorTurno;
     int pontos;
+    bool conquistado;
 
     int static nTerritorioGenerico;
     
 public:
 
-    Territorio(const string&);
+    explicit Territorio(const string&);
     ~Territorio();
 
     string getNome();

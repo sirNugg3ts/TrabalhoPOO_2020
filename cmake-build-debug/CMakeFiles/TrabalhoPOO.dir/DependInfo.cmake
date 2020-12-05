@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "C:/Users/diogo/CLionProjects/TrabalhoPOO/Imperio.cpp" "C:/Users/diogo/CLionProjects/TrabalhoPOO/cmake-build-debug/CMakeFiles/TrabalhoPOO.dir/Imperio.cpp.obj"
   "C:/Users/diogo/CLionProjects/TrabalhoPOO/Interface.cpp" "C:/Users/diogo/CLionProjects/TrabalhoPOO/cmake-build-debug/CMakeFiles/TrabalhoPOO.dir/Interface.cpp.obj"
   "C:/Users/diogo/CLionProjects/TrabalhoPOO/Territorio.cpp" "C:/Users/diogo/CLionProjects/TrabalhoPOO/cmake-build-debug/CMakeFiles/TrabalhoPOO.dir/Territorio.cpp.obj"
   "C:/Users/diogo/CLionProjects/TrabalhoPOO/main.cpp" "C:/Users/diogo/CLionProjects/TrabalhoPOO/cmake-build-debug/CMakeFiles/TrabalhoPOO.dir/main.cpp.obj"

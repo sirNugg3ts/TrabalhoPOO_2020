@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/diogo/CLionProjects/TrabalhoPOO/Imperio.cpp">
+			<Option target="TrabalhoPOO"/>
+		</Unit>
+		<Unit filename="C:/Users/diogo/CLionProjects/TrabalhoPOO/Imperio.h">
+			<Option target="TrabalhoPOO"/>
+		</Unit>
 		<Unit filename="C:/Users/diogo/CLionProjects/TrabalhoPOO/Interface.cpp">
 			<Option target="TrabalhoPOO"/>
 		</Unit>
