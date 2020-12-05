@@ -4,12 +4,17 @@
 #include <string>
 #include "mundo.h"
 #include "Imperio.h"
+
 /*
  * int stage: 0 - Configuração
  *            1 - In-Game
  *            2 - Endgame
+ *
+ * int fase: 0 - Conquistar/Passar
+ *           1 - Recolher produtos/ouro
+ *           2 - Comprar unidade militar / Obter tecnologia
+ *           3 - Eventos
  * */
-
 
 using namespace std;
 
@@ -32,8 +37,6 @@ private:
     void processaComandoDoFicheiro(istringstream &iss, Mundo &mundo);
     int processaComandoJogo(Mundo& mundo,Imperio& imperio);
     void checkIfEndgame();
-
-
     void passaTurno();
 };
 #endif 

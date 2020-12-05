@@ -26,11 +26,11 @@ public:
     ~Territorio();
 
     string getNome();
-    int getResistencia();
-    int getProdutos();
-    int getOuro();
-    int getPontos();
-    bool getConquistado();
+    int getResistencia() const;
+    int getProdutos() const;
+    int getOuro() const;
+    int getPontos() const;
+    bool getConquistado() const;
     void setConquistado(bool newState);
 };
 

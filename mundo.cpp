@@ -1,10 +1,5 @@
-#include "Mundo.h"
+#include "mundo.h"
 #include <sstream>
-#include "Imperio.h"
-
-Mundo::Mundo(){}
-Mundo::~Mundo(){}
-
 void Mundo::criaTerritorioInicial(){
     this->territorios.push_back(new Territorio("Territorio Inicial"));
 }
@@ -51,3 +46,7 @@ Territorio* Mundo::devolvePonteiroTerritorio(const string& nomeTerritorio){
     }
     return nullptr;
 }
+
+Mundo::~Mundo() = default;
+
+Mundo::Mundo() = default;

@@ -9,7 +9,7 @@ Territorio::Territorio(const string& tipo){
     	produtosPorTurno= 1;
     	ouroPorTurno = 1;
     	pontos = 0;
-    	conquistado = 0;
+    	conquistado = false;
 	}else if (tipo == "TerritorioGenerico") {
         nome = "TerritorioGenerico" + std::to_string(nTerritorioGenerico);
         this->tipo = "Territorio Generico";
@@ -17,33 +17,31 @@ Territorio::Territorio(const string& tipo){
         produtosPorTurno = 1;
         ouroPorTurno = 1;
         pontos = 1;
-        conquistado = 0;
+        conquistado = false;
 
         nTerritorioGenerico++;
         cout << "Territorio '" << nome << "' criado" << endl;
     }
 }
 
-Territorio::~Territorio()
-{
-}
+Territorio::~Territorio() = default;
 string Territorio::getNome() {
     return this->nome;
 }
-int Territorio::getResistencia(){
+int Territorio::getResistencia() const{
     return this->resistencia;
 }
-int Territorio::getProdutos(){
+int Territorio::getProdutos() const{
     return this->produtosPorTurno;
 }
-int Territorio::getOuro(){
+int Territorio::getOuro() const{
     return this->ouroPorTurno;
 }
-int Territorio::getPontos(){
+int Territorio::getPontos() const{
     return this->pontos;
 }
 
-bool Territorio::getConquistado(){
+bool Territorio::getConquistado() const{
     return this->conquistado;
 }
 

@@ -1,4 +1,5 @@
 #include "Imperio.h"
+
 #include <cstdlib>
 #include <ctime>
 #include <sstream>
