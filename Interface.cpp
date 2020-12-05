@@ -17,20 +17,21 @@
 
 const int MAXTURNOS = 12;
 
-Interface::Interface(Mundo& mundo){
-    stage=0;
-    turno=1;
-    fase=1;
+Interface::Interface(Mundo &mundo) {
+    stage = 0;
+    turno = 1;
+    fase = 1;
 }
+
 Interface::~Interface() {
     cout << "A terminar..." << endl;
 }
 
 void Interface::apresentaListaComandos() const {
-    switch(stage){
+    switch (stage) {
         case 0:
             cout << "Comandos disponiveis:" << endl;
-            cout << " - cria <tipo de territorio> <numero de territorios>" <<endl;
+            cout << " - cria <tipo de territorio> <numero de territorios>" << endl;
             cout << " - carrega <nomeFicheiro>" << endl;
             cout << " - lista " << endl; // mostra todos os detalhes
             cout << " - lista <nomeTerritorio> " << endl; // mostra os detalhes de 1 território
@@ -52,8 +53,8 @@ void Interface::apresentaListaComandos() const {
 }
 
 
-void Interface::run(Mundo& mundo,Imperio& imperio){
-    while(true){
+void Interface::run(Mundo &mundo, Imperio &imperio) {
+    while (true) {
         switch (stage) {
             case 0: { // configuracao
 
@@ -66,9 +67,9 @@ void Interface::run(Mundo& mundo,Imperio& imperio){
                 break;
             }
             case 1: // in-game
-                if (fase==1)
+                if (fase == 1)
                     apresentaListaComandos();
-                if(processaComandoJogo(mundo,imperio))
+                if (processaComandoJogo(mundo, imperio))
                     return;
                 checkIfEndgame(); //se chegar ao maxturnos vai para stage 2
                 break;
@@ -85,154 +86,151 @@ void Interface::processaFicheiro(const string &nomeFicheiro, Mundo &mundo) {
     ifstream ficheiro;
     ficheiro.open(nomeFicheiro);
 
-    cout << "Vou tentar abrir o ficheiro " << nomeFicheiro << "..." << endl;
+    cout << "A abrir o ficheiro " << nomeFicheiro << "..." << endl;
 
-    if(ficheiro.is_open()){
+    if (ficheiro.is_open()) {
         //abriu com sucesso
         cout << "A processar o ficheiro..." << endl;
         string comandoLidoDoFile;
 
-        while (getline(ficheiro,comandoLidoDoFile))
-        {
+        while (getline(ficheiro, comandoLidoDoFile)) {
             istringstream iss(comandoLidoDoFile);
-            processaComandoDoFicheiro(iss,mundo);
+            processaComandoDoFicheiro(iss, mundo);
         }
         ficheiro.close();
-    }else{
+    } else {
         //não foi possível abrir o ficheiro
         cout << "Erro ao abrir " << nomeFicheiro << endl;
     }
 }
 
-int Interface::processaComando(Mundo& mundo,Imperio& imperio){
+int Interface::processaComando(Mundo &mundo, Imperio &imperio) {
 
     string comando;
-    getline(cin,comando);
+    getline(cin, comando);
     stringstream ss(comando);
     ss >> comando;
 
-    if(comando == "cria"){
+    if (comando == "cria") {
         string tipo;
         int n;
         ss >> tipo;
         ss >> n;
 
-        if(tipo == "Territorio Inicial"){
+        if (tipo == "Territorio Inicial") {
             cout << "Nao e permitido criar territorios do tipo 'territorio inicial' !!! " << endl;
-        }else{
-            mundo.criaTerritorio(tipo,n);
+        } else {
+            mundo.criaTerritorio(tipo, n);
         }
-    }else if(comando == "carrega"){
+    } else if (comando == "carrega") {
         string nomeFicheiro;
         ss >> nomeFicheiro;
-        Interface::processaFicheiro(nomeFicheiro,mundo);
-    }else if(comando == "comecajogo"){
+        Interface::processaFicheiro(nomeFicheiro, mundo);
+    } else if (comando == "comecajogo") {
         stage = 1;
-    }else if(comando == "lista"){
-        if(ss.good()){
+    } else if (comando == "lista") {
+        if (ss.good()) {
             string nomeTerritorio;
             ss >> nomeTerritorio;
             cout << mundo.lista(nomeTerritorio);
-        }else{
+        } else {
             cout << mundo.lista();
         }
-    }else if(comando == "listai"){
+    } else if (comando == "listai") {
         cout << imperio.listai();
-    }
-    else if(comando == "sair"){
+    } else if (comando == "sair") {
         return 1;
-    }else{
+    } else {
         cout << "Comando invalido!" << endl;
     }
     return 0;
 }
 
-void Interface::processaComandoDoFicheiro(istringstream& iss,Mundo& mundo){
+void Interface::processaComandoDoFicheiro(istringstream &iss, Mundo &mundo) {
 
     string comando;
-    getline(iss,comando);
+    getline(iss, comando);
     stringstream ss(comando);
     ss >> comando;
 
-    if(comando == "cria"){
+    if (comando == "cria") {
         string tipo;
         int n;
         ss >> tipo;
         ss >> n;
 
-        mundo.criaTerritorio(tipo,n);
-    }else if(comando == "carrega"){
+        mundo.criaTerritorio(tipo, n);
+    } else if (comando == "carrega") {
         string nomeFicheiro;
         ss >> nomeFicheiro;
-        Interface::processaFicheiro(nomeFicheiro,mundo);
-    }else if(comando == "lista"){
-        if(ss.good()){
+        Interface::processaFicheiro(nomeFicheiro, mundo);
+    } else if (comando == "lista") {
+        if (ss.good()) {
             string nomeTerritorio;
             ss >> nomeTerritorio;
             cout << mundo.lista(nomeTerritorio);
-        }else{
+        } else {
             cout << mundo.lista();
         }
-    }else if(comando == "comecajogo"){
+    } else if (comando == "comecajogo") {
         stage = 1;
-    }else{
+    } else {
         cerr << "Comando " << comando << " invalido em ficheiro!" << endl;
     }
 }
 
 // Comandos de stage 1 -> Execução do jogo (in-game)
 
-void Interface::passaTurno(){
+void Interface::passaTurno() {
     cout.flush();
-    cout << "*******************" <<endl
+    cout << "*******************" << endl
          << "FIM DO TURNO " << turno << endl
          << "*******************" << endl;
     turno++;
 }
 
-void Interface::checkIfEndgame(){
-    if (turno == MAXTURNOS){
+void Interface::checkIfEndgame() {
+    if (turno == MAXTURNOS) {
         stage = 2;
     }
 }
 
-int Interface::processaComandoJogo(Mundo& mundo,Imperio& imperio){
+int Interface::processaComandoJogo(Mundo &mundo, Imperio &imperio) {
 
     switch (fase) {
-        case 1:{
+        case 1: {
             //ler o comando
             string comando;
-            getline(cin,comando);
+            getline(cin, comando);
             stringstream ss(comando);
             ss >> comando;
 
-            if(comando == "conquista") {
+            if (comando == "conquista") {
                 if (ss.good()) {
                     string nomeTerritorio;
                     ss >> nomeTerritorio;
-                    if(imperio.ConquistaImperio(mundo, nomeTerritorio)==1)
+                    if (imperio.ConquistaTerritorio(mundo, nomeTerritorio) == 1)
                         fase = 2;
-                }else{
+                } else {
                     cout << "Argumentos em falta no conquista! Sintaxe: conquista <nomeTerritorio>" << endl;
                 }
-            }
-            else if(comando == "lista") {
+            } else if (comando == "lista") {
                 if (ss.good()) {
                     string nomeTerritorio;
                     ss >> nomeTerritorio;
-                    cout << mundo.lista(nomeTerritorio) <<endl;
+                    cout << mundo.lista(nomeTerritorio) << endl;
                 } else {
-                    cout << mundo.lista() <<endl;
+                    cout << mundo.lista() << endl;
                 }
-            }else if(comando == "listai"){
+            } else if (comando == "listai") {
                 cout << imperio.listai() << endl;
-            }else if(comando == "sair"){
+            } else if (comando == "sair") {
                 return 1;
-            }else if(comando != "passa")
+            } else if (comando != "passa")
                 cerr << "Comando invalido!" << endl;
             else
-                fase=2;
-                break;
+                fase = 2;
+            break;
         }
         case 2:
             //Fase de recolha de produtos e ouro
@@ -240,14 +238,14 @@ int Interface::processaComandoJogo(Mundo& mundo,Imperio& imperio){
             fase++;
             break;
 
-        case 3:{
+        case 3: {
 
             cout << " Ouro total: " << imperio.getOuroImperio() << endl;
             cout << " Produtos total: " << imperio.getProdutosImperio() << endl;
             cout << "Deseja comprar uma unidade militar? (s/n): ";
             //ler o comando
             string comando;
-            getline(cin,comando);
+            getline(cin, comando);
             stringstream ss(comando);
             ss >> comando;
 
@@ -256,9 +254,9 @@ int Interface::processaComandoJogo(Mundo& mundo,Imperio& imperio){
                 cout << " Ouro total: " << imperio.getOuroImperio() << endl;
                 cout << " Produtos total: " << imperio.getProdutosImperio() << endl;
                 fase++;
-            }else if(comando == "n"){
+            } else if (comando == "n") {
                 fase++;
-            }else{
+            } else {
                 cerr << "Comando '" << comando << "' invalido!" << endl;
             }
             break;

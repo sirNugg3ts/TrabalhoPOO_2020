@@ -5,20 +5,20 @@ using namespace std;
 
 int Territorio::nTerritorioGenerico = 0;
 
-int main(){
+int main() {
     Mundo mundo;
 
     //territorio inicial
     mundo.criaTerritorioInicial();
 
-    Imperio* imperio = new Imperio(mundo);
+    Imperio *imperio = new Imperio(mundo);
 
     //cria interface
-    Interface* interface = new Interface(mundo);
+    Interface *interface = new Interface(mundo);
 
-    interface->run(mundo,*imperio);
+    interface->run(mundo, *imperio);
 
     delete interface;
 
     exit(EXIT_SUCCESS);
-    }
+}

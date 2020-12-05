@@ -2,7 +2,7 @@
 #define INTERFACE_H
 
 #include <string>
-#include "mundo.h"
+#include "Mundo.h"
 #include "Imperio.h"
 
 /*
@@ -18,25 +18,33 @@
 
 using namespace std;
 
-class Interface{
+class Interface {
 private:
     int stage;
     int turno;
     int fase;
 
 public:
-    explicit Interface(Mundo&);
+    explicit Interface(Mundo &);
+
     ~Interface();
-    void run(Mundo& mundo,Imperio& imperio);
+
+    void run(Mundo &mundo, Imperio &imperio);
 
 private:
-    void processaFicheiro(const string& nomeFicheiro,Mundo& mundo);
+    void processaFicheiro(const string &nomeFicheiro, Mundo &mundo);
+
     void apresentaListaComandos() const;
 
-    int processaComando(Mundo& mundo,Imperio& imperio);
+    int processaComando(Mundo &mundo, Imperio &imperio);
+
     void processaComandoDoFicheiro(istringstream &iss, Mundo &mundo);
-    int processaComandoJogo(Mundo& mundo,Imperio& imperio);
+
+    int processaComandoJogo(Mundo &mundo, Imperio &imperio);
+
     void checkIfEndgame();
+
     void passaTurno();
 };
-#endif 
+
+#endif

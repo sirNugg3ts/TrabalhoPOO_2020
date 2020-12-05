@@ -7,8 +7,7 @@
 
 using namespace std;
 
-class Territorio
-{
+class Territorio {
 private:
     string nome;
     string tipo;
@@ -19,18 +18,25 @@ private:
     bool conquistado;
 
     int static nTerritorioGenerico;
-    
+
 public:
 
-    explicit Territorio(const string&);
+    explicit Territorio(const string &);
+
     ~Territorio();
 
     string getNome();
+
     int getResistencia() const;
+
     int getProdutos() const;
+
     int getOuro() const;
+
     int getPontos() const;
+
     bool getConquistado() const;
+
     void setConquistado(bool newState);
 };
 
