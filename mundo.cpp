@@ -27,7 +27,7 @@ string Mundo::lista() {
 
 string Mundo::lista(const string& nomeTerritorio) {
     int contador = 1;
-    int found;
+    int found = 0;
     ostringstream buff;
     buff << endl << endl << "Territorios:" << endl;
     for (Territorio *p : territorios) {

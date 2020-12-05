@@ -13,7 +13,7 @@ Territorio::Territorio(const string& tipo){
 	}else if (tipo == "TerritorioGenerico") {
         nome = "TerritorioGenerico" + std::to_string(nTerritorioGenerico);
         this->tipo = "Territorio Generico";
-        resistencia = 6;
+        resistencia = 3;
         produtosPorTurno = 1;
         ouroPorTurno = 1;
         pontos = 1;

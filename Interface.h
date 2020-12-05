@@ -30,7 +30,7 @@ private:
 
     int processaComando(Mundo& mundo,Imperio& imperio);
     void processaComandoDoFicheiro(istringstream &iss, Mundo &mundo);
-    void processaComandoJogo(Mundo& mundo,Imperio& imperio);
+    int processaComandoJogo(Mundo& mundo,Imperio& imperio);
     void checkIfEndgame();
 
 
