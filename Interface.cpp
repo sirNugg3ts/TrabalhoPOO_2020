@@ -117,7 +117,11 @@ int Interface::processaComando(Mundo& mundo,Imperio& imperio){
         ss >> tipo;
         ss >> n;
 
-        mundo.criaTerritorio(tipo,n);
+        if(tipo == "Territorio Inicial"){
+            cout << "Nao e permitido criar territorios do tipo 'territorio inicial' !!! " << endl;
+        }else{
+            mundo.criaTerritorio(tipo,n);
+        }
     }else if(comando == "carrega"){
         string nomeFicheiro;
         ss >> nomeFicheiro;
