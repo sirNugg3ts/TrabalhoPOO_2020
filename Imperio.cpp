@@ -106,18 +106,17 @@ void Imperio::compraUnidadeMilitar(){
 string Imperio::listai(){
     int contador = 1;
     ostringstream buff;
-    buff << endl << endl << "Territorios:" << endl;
+    buff << endl << endl << "Imperio:" << endl;
     for (Territorio *p : this->territoriosConquistados) {
 
             buff << contador++ << " Nome: " << p->getNome() <<
             " | Resistencia: " << p->getResistencia() <<
             " | Produtos por turno: " << p->getProdutos() <<
             " | Ouro por turno: " << p->getOuro() <<
-            " | Pontos de vitoria: " << p->getPontos() << endl <<
-            " Ouro disponivel: "<< this->getOuroImperio() <<
-            " | Produtos disponivel: " << this->getProdutosImperio() << endl;
-
+            " | Pontos de vitoria: " << p->getPontos() << endl;
     }
+        cout << " Ouro total: " << this->getOuroImperio() << endl;
+        cout << " Produtos total: " << this->getProdutosImperio() << endl;
     return buff.str();
 }
 

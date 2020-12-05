@@ -19,7 +19,7 @@ const int MAXTURNOS = 12;
 
 Interface::Interface(Mundo& mundo){
     stage=0;
-    turno=0;
+    turno=1;
     fase=1;
 }
 Interface::~Interface() {
@@ -42,6 +42,7 @@ void Interface::apresentaListaComandos() const {
         case 1:
             cout << "Comandos disponiveis:" << endl;
             cout << " - conquista <nomeTerritorio>" << endl;
+            cout << " - passa" << endl;
             cout << " - lista <nomeTerritorio>" << endl;
             cout << " - listai " << endl;
             cout << " - sair" << endl;
@@ -99,7 +100,7 @@ void Interface::processaFicheiro(const string &nomeFicheiro, Mundo &mundo) {
         ficheiro.close();
     }else{
         //não foi possível abrir o ficheiro
-        cerr << "Erro ao abrir " << nomeFicheiro << endl;
+        cout << "Erro ao abrir " << nomeFicheiro << endl;
     }
 }
 
@@ -137,7 +138,7 @@ int Interface::processaComando(Mundo& mundo,Imperio& imperio){
     else if(comando == "sair"){
         return 1;
     }else{
-        cerr << "Comando invalido!" << endl;
+        cout << "Comando invalido!" << endl;
     }
     return 0;
 }
@@ -208,10 +209,10 @@ int Interface::processaComandoJogo(Mundo& mundo,Imperio& imperio){
                     if(imperio.ConquistaImperio(mundo, nomeTerritorio)==1)
                         fase = 2;
                 }else{
-                    cerr << "Argumentos em falta no conquista! Sintaxe: conquista <nomeTerritorio>" << endl;
+                    cout << "Argumentos em falta no conquista! Sintaxe: conquista <nomeTerritorio>" << endl;
                 }
-            }else
-            if(comando == "lista") {
+            }
+            else if(comando == "lista") {
                 if (ss.good()) {
                     string nomeTerritorio;
                     ss >> nomeTerritorio;
@@ -237,7 +238,8 @@ int Interface::processaComandoJogo(Mundo& mundo,Imperio& imperio){
 
         case 3:{
 
-
+            cout << " Ouro total: " << imperio.getOuroImperio() << endl;
+            cout << " Produtos total: " << imperio.getProdutosImperio() << endl;
             cout << "Deseja comprar uma unidade militar? (s/n): ";
             //ler o comando
             string comando;
@@ -247,6 +249,8 @@ int Interface::processaComandoJogo(Mundo& mundo,Imperio& imperio){
 
             if (comando == "s") {
                 imperio.compraUnidadeMilitar();
+                cout << " Ouro total: " << imperio.getOuroImperio() << endl;
+                cout << " Produtos total: " << imperio.getProdutosImperio() << endl;
                 fase++;
             }else if(comando == "n"){
                 fase++;
