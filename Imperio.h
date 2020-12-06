@@ -24,6 +24,10 @@ public:
 
     int getProdutosImperio() const;
 
+    int getMaxCofre() const;
+    int getMaxArmazem() const;
+
+
     string listai();
 
 };

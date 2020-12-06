@@ -23,6 +23,7 @@ private:
     int stage;
     int turno;
     int fase;
+    int ano;
 
 public:
     explicit Interface(Mundo &);
@@ -42,7 +43,7 @@ private:
 
     int processaComandoJogo(Mundo &mundo, Imperio &imperio);
 
-    void checkIfEndgame();
+    void checkIfEndgame(Mundo&,Imperio&);
 
     void passaTurno();
 };

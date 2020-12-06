@@ -15,6 +15,10 @@ Imperio::Imperio(Mundo &mundo) {
     maxForcaMilitar = 3;
 }
 
+int Imperio::getMaxCofre() const {
+    return tamCofre;
+}
+
 int Imperio::getOuroImperio() const {
     return this->cofreOuro;
 }
@@ -43,10 +47,11 @@ int Imperio::ConquistaTerritorio(Mundo &mundo, const string &nomeTerritorio) {
 
     int sorte = rand() % 6 + 1;
     int forcatotal = sorte + forcaMilitar;
-    cout << "Resistencia do Territorio: " << territorioConquistar->getResistencia() << endl;
-    cout << "Forca total: Sorte->" << sorte << " + Forca Militar: " << forcaMilitar << " = " << forcatotal << endl;
+
     if (forcatotal >= (territorioConquistar->getResistencia())) {
         if (!territorioConquistar->getConquistado()) {
+            cout << "Resistencia do Territorio: " << territorioConquistar->getResistencia() << endl;
+            cout << "Forca total: Sorte->" << sorte << " + Forca Militar: " << forcaMilitar << " = " << forcatotal << endl;
             this->territoriosConquistados.push_back(territorioConquistar);
             territorioConquistar->setConquistado(true);
             cout << "Territorio conquistado com sucesso!" << endl;
@@ -119,6 +124,10 @@ string Imperio::listai() {
     cout << " Ouro total: " << this->getOuroImperio() << endl;
     cout << " Produtos total: " << this->getProdutosImperio() << endl;
     return buff.str();
+}
+
+int Imperio::getMaxArmazem() const {
+    return tamArmazem;
 }
 
 

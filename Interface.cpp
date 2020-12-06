@@ -21,6 +21,7 @@ Interface::Interface(Mundo &mundo) {
     stage = 0;
     turno = 1;
     fase = 1;
+    ano = 1;
 }
 
 Interface::~Interface() {
@@ -71,7 +72,7 @@ void Interface::run(Mundo &mundo, Imperio &imperio) {
                     apresentaListaComandos();
                 if (processaComandoJogo(mundo, imperio))
                     return;
-                checkIfEndgame(); //se chegar ao maxturnos vai para stage 2
+                checkIfEndgame(mundo,imperio); //se chegar ao maxturnos vai para stage 2
                 break;
             case 2:  //end game
                 break;
@@ -175,7 +176,7 @@ void Interface::processaComandoDoFicheiro(istringstream &iss, Mundo &mundo) {
     } else if (comando == "comecajogo") {
         stage = 1;
     } else {
-        cerr << "Comando " << comando << " invalido em ficheiro!" << endl;
+        cout << "Comando " << comando << " invalido em ficheiro!" << endl;
     }
 }
 
@@ -189,8 +190,11 @@ void Interface::passaTurno() {
     turno++;
 }
 
-void Interface::checkIfEndgame() {
-    if (turno == MAXTURNOS) {
+void Interface::checkIfEndgame(Mundo& mundo,Imperio& imperio) {
+    if (turno > MAXTURNOS) {
+        cout << "********************" << endl
+        << "FIM DO JOGO" << endl
+        <<  "********************" << endl << imperio.listai() << endl;
         stage = 2;
     }
 }
@@ -227,14 +231,16 @@ int Interface::processaComandoJogo(Mundo &mundo, Imperio &imperio) {
             } else if (comando == "sair") {
                 return 1;
             } else if (comando != "passa")
-                cerr << "Comando invalido!" << endl;
+                cout << "Comando invalido!" << endl;
             else
                 fase = 2;
             break;
         }
         case 2:
             //Fase de recolha de produtos e ouro
-            imperio.processaOuroProdutos();
+            if (imperio.getOuroImperio() < imperio.getMaxCofre() || imperio.getProdutosImperio() < imperio.getMaxArmazem())
+                imperio.processaOuroProdutos();
+
             fase++;
             break;
 
