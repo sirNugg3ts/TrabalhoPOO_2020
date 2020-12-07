@@ -1,2 +1,0 @@
-cria TerritorioGenerico 2
-cria TerritorioGenerico 3
