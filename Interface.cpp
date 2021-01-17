@@ -461,7 +461,7 @@ int Interface::processaComandoJogo(Mundo &mundo, Imperio &imperio) {
                         if (isGood){
                             Save* newSave = new Save();
 
-                            newSave->saveMundo(imperio,mundo,ano,turno,stage,menu,fase);
+                            newSave->saveMundo(imperio,mundo,this->ano,this->turno,this->stage,this->menu,this->fase);
                             newSave->setNomeSave(name);
                             saves.push_back(newSave);
                         }
@@ -479,11 +479,13 @@ int Interface::processaComandoJogo(Mundo &mundo, Imperio &imperio) {
                                 cout << "i found the save" << endl;
                                 e->load(imperio, mundo,*this);
                                 cout << "Save carregado com sucesso!" << endl;
-                                cout << "Primeiro territorio: " << mundo.territorios[0]->getNome() << endl;
+                                break;
                             }
                         }
                         if (!isGood) {
                             cout << "Nao foi encontrado nenhum save com esse nome!" << endl;
+                        }else{
+                            break;
                         }
                     
                     }else
@@ -659,7 +661,9 @@ int Interface::processaComandoJogo(Mundo &mundo, Imperio &imperio) {
                                     cout << "i found the save" << endl;
                                     e->load(imperio, mundo, *this);
                                     cout << "Save carregado com sucesso!" << endl;
-                                    cout << "Primeiro territorio: " << mundo.territorios[0]->getNome() << endl;
+                                    break;
+                                }else{
+                                    break;
                                 }
                             }
                             if (!isGood) {
@@ -853,12 +857,13 @@ int Interface::processaComandoJogo(Mundo &mundo, Imperio &imperio) {
                                 cout << "i found the save" << endl;
                                 e->load(imperio, mundo,*this);
                                 cout << "Save carregado com sucesso!" << endl;
-                                cout << "Primeiro territorio: " << mundo.territorios[0]->getNome() << endl;
+                                break;
                             }
                         }
                         if (!isGood) {
                             cout << "Nao foi encontrado nenhum save com esse nome!" << endl;
-                        }
+                        }else
+                            break;
                     
                     }else
                         cout << "Indique o nome do save" << endl;
@@ -887,12 +892,13 @@ int Interface::processaComandoJogo(Mundo &mundo, Imperio &imperio) {
                     cout << "Comando invalido ! " << endl;
                 }
                 else {
+                    menu = 3;
                 fase = 4;
                    }
                 
               } while (comando != "avanca");
             } 
-            menu = 3;
+
             break;
         }
         case 4:{ // militar e tecnologias
@@ -1062,12 +1068,13 @@ int Interface::processaComandoJogo(Mundo &mundo, Imperio &imperio) {
                                 cout << "i found the save" << endl;
                                 e->load(imperio, mundo,*this);
                                 cout << "Save carregado com sucesso!" << endl;
-                                cout << "Primeiro territorio: " << mundo.territorios[0]->getNome() << endl;
+                                break;
                             }
                         }
                         if (!isGood) {
                             cout << "Nao foi encontrado nenhum save com esse nome!" << endl;
-                        }
+                        }else
+                            break;
 
                     }else
                         cout << "Indique o nome do save" << endl;
