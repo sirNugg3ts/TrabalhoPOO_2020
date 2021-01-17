@@ -1,13 +1,41 @@
 #include "Mundo.h"
+#include "Continente.h"
+#include "Ilhas.h"
 #include <sstream>
 
 void Mundo::criaTerritorioInicial() {
-    this->territorios.push_back(new Territorio("Territorio Inicial"));
+    this->territorios.push_back(new TerritorioInicial());
 }
 
 void Mundo::criaTerritorio(const string &tipo, int n) {
-    for (int i = 0; i < n; i++)
-        this->territorios.push_back(new Territorio(tipo));
+    for (int i = 0; i < n; i++){
+        if (tipo == "Planicie")
+        {
+            this->territorios.push_back(new Planicie());
+        }
+        else if (tipo == "Montanha") {
+            this->territorios.push_back(new Montanha());
+        }
+        else if (tipo == "Fortaleza") {
+            this->territorios.push_back(new Fortaleza());
+        }
+        else if (tipo == "Mina") {
+            this->territorios.push_back(new Mina());
+        }
+        else if (tipo == "Duna") {
+            this->territorios.push_back(new Duna());
+        }
+        else if (tipo == "Castelo") {
+            this->territorios.push_back(new Castelo());
+        }
+        else if (tipo == "Refugio") {
+            this->territorios.push_back(new Refugio());
+        }
+        else if (tipo == "Pescaria") {
+            this->territorios.push_back(new Pescaria());
+        }
+    }
+        
 }
 
 string Mundo::lista() {
@@ -47,6 +75,14 @@ string Mundo::lista(const string &nomeTerritorio) {
 Territorio *Mundo::devolvePonteiroTerritorio(const string &nomeTerritorio) {
     for (Territorio *p : territorios) {
         if (p->getNome() == nomeTerritorio)
+            return p;
+    }
+    return nullptr;
+}
+
+Territorio *Mundo::territorioAtacado(const string& ultimoConquistado){
+    for (Territorio* p : territorios) {
+        if (p->getNome() == ultimoConquistado)
             return p;
     }
     return nullptr;

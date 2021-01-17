@@ -26,6 +26,7 @@ public:
     string lista();
 
     Territorio *devolvePonteiroTerritorio(const string &nomeTerritorio);
+    Territorio *territorioAtacado(const string & ultimoConquistado);
 };
 
 #endif
