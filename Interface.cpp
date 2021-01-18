@@ -284,7 +284,7 @@ void Interface::processaComandoDoFicheiro(istringstream &iss, Mundo &mundo) {
 
 // Comandos de stage 1 -> Execução do jogo (in-game)
 
-void Interface::passaTurno() {
+void Interface::passaTurno(Imperio& imperio) {
 
     /*
     ANO 1
@@ -315,6 +315,11 @@ void Interface::passaTurno() {
     menu = 1;
     
     Interface::turno++;
+    for (auto& e : imperio.territoriosConquistados) {
+        if (e->getNome().find("Montanha") != std::string::npos) {
+            e->atualizaRondas();
+        }
+    }
     if (Interface::turno == 7 && Interface::ano == 1) {
         Interface::turno = 1;
         Interface::ano = 2;
@@ -461,7 +466,7 @@ int Interface::processaComandoJogo(Mundo &mundo, Imperio &imperio) {
                         if (isGood){
                             Save* newSave = new Save();
 
-                            newSave->saveMundo(imperio,mundo,ano,turno,stage,menu,fase);
+                            newSave->saveMundo(imperio,mundo,this->ano,this->turno,this->stage,this->menu,this->fase);
                             newSave->setNomeSave(name);
                             saves.push_back(newSave);
                         }
@@ -479,11 +484,13 @@ int Interface::processaComandoJogo(Mundo &mundo, Imperio &imperio) {
                                 cout << "i found the save" << endl;
                                 e->load(imperio, mundo,*this);
                                 cout << "Save carregado com sucesso!" << endl;
-                                cout << "Primeiro territorio: " << mundo.territorios[0]->getNome() << endl;
+                                break;
                             }
                         }
                         if (!isGood) {
                             cout << "Nao foi encontrado nenhum save com esse nome!" << endl;
+                        }else{
+                            break;
                         }
                     
                     }else
@@ -526,7 +533,7 @@ int Interface::processaComandoJogo(Mundo &mundo, Imperio &imperio) {
             }
             fase = 3;
         }
-        case 3: {
+        case 3:{
             //Fase de recolha de produtos e ouro
             cout << "*******************" << endl;
             cout << "Ouro total: " << imperio.getOuroImperio() << endl;
@@ -659,7 +666,9 @@ int Interface::processaComandoJogo(Mundo &mundo, Imperio &imperio) {
                                     cout << "i found the save" << endl;
                                     e->load(imperio, mundo, *this);
                                     cout << "Save carregado com sucesso!" << endl;
-                                    cout << "Primeiro territorio: " << mundo.territorios[0]->getNome() << endl;
+                                    break;
+                                }else{
+                                    break;
                                 }
                             }
                             if (!isGood) {
@@ -853,12 +862,13 @@ int Interface::processaComandoJogo(Mundo &mundo, Imperio &imperio) {
                                 cout << "i found the save" << endl;
                                 e->load(imperio, mundo,*this);
                                 cout << "Save carregado com sucesso!" << endl;
-                                cout << "Primeiro territorio: " << mundo.territorios[0]->getNome() << endl;
+                                break;
                             }
                         }
                         if (!isGood) {
                             cout << "Nao foi encontrado nenhum save com esse nome!" << endl;
-                        }
+                        }else
+                            break;
                     
                     }else
                         cout << "Indique o nome do save" << endl;
@@ -887,12 +897,13 @@ int Interface::processaComandoJogo(Mundo &mundo, Imperio &imperio) {
                     cout << "Comando invalido ! " << endl;
                 }
                 else {
+                    menu = 3;
                 fase = 4;
                    }
                 
               } while (comando != "avanca");
             } 
-            menu = 3;
+
             break;
         }
         case 4:{ // militar e tecnologias
@@ -1062,12 +1073,13 @@ int Interface::processaComandoJogo(Mundo &mundo, Imperio &imperio) {
                                 cout << "i found the save" << endl;
                                 e->load(imperio, mundo,*this);
                                 cout << "Save carregado com sucesso!" << endl;
-                                cout << "Primeiro territorio: " << mundo.territorios[0]->getNome() << endl;
+                                break;
                             }
                         }
                         if (!isGood) {
                             cout << "Nao foi encontrado nenhum save com esse nome!" << endl;
-                        }
+                        }else
+                            break;
 
                     }else
                         cout << "Indique o nome do save" << endl;
@@ -1204,7 +1216,7 @@ int Interface::processaComandoJogo(Mundo &mundo, Imperio &imperio) {
                     }
                 }
                 else {
-                    passaTurno();
+                    passaTurno(imperio);
                 }
             } while (comando != "avanca");
             break;

@@ -30,6 +30,15 @@ void Territorio::setConquistado(bool newState) {
     this->conquistado = newState;
 }
 
+int Territorio::atualizaRondas() {
+
+    if (this->conquistado == true) {
+        this->nRondasConquistado++;
+    }
+    return nRondasConquistado;
+};
+
+
 Territorio::~Territorio(){
     cout << "Apagado territorio" << this->getNome() << endl;
 }

@@ -12,6 +12,7 @@ protected:
     string nome;
     int resistencia=0;
     bool conquistado=0;
+    int nRondasConquistado = 0;
 public:
 
     
@@ -29,6 +30,7 @@ public:
     ~Territorio();
 
     bool getConquistado() const;
+    int atualizaRondas();
 
     void setConquistado(bool newState);
 

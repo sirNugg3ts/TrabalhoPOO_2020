@@ -14,9 +14,9 @@ private:
 	Imperio imperioSave;
 	Mundo backupMundo;
 
-	int ano;
-	int turno;
-	int stage, menu,fase;
+	int ano=0;
+	int turno=0;
+	int stage=0, menu=0,fase=0;
 	
 public:
     vector<Territorio*> getBackupMundo();

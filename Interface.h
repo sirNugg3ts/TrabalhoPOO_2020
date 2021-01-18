@@ -47,7 +47,7 @@ private:
     int processaComandoJogo(Mundo &mundo, Imperio &imperio);
     void forcaEventos(int evento, Mundo& mundo, Imperio& imperio);
     void checkIfEndgame(Mundo&,Imperio&);
-    void passaTurno();
+    void passaTurno(Imperio& imperio);
 };
 
 #endif

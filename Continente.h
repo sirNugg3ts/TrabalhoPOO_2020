@@ -19,10 +19,9 @@ public:
 };
 
 class Montanha : public Territorio{
-private:
-    int nRondasConquistado;
 public:
     int static nMontanha;
+    int nRondasConquistado;
     Montanha();
     Montanha(const Montanha& other);
     int getProdutos() override;
