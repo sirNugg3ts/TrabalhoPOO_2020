@@ -8,36 +8,44 @@
 using namespace std;
 
 class Territorio {
-private:
+protected: 
     string nome;
-    string tipo;
-    int resistencia;
-    int produtosPorTurno;
-    int ouroPorTurno;
-    int pontos;
-    bool conquistado;
-
-    int static nTerritorioGenerico;
-
+    int resistencia=0;
+    bool conquistado=0;
+    int nRondasConquistado = 0;
 public:
 
-    explicit Territorio(const string &);
-
-    ~Territorio();
-
+    
     string getNome();
 
     int getResistencia() const;
 
-    int getProdutos() const;
+    virtual int getProdutos() =0;
 
-    int getOuro() const;
+    virtual Territorio* clone() const = 0;
 
-    int getPontos() const;
+    virtual int getOuro() =0;
+
+    virtual int getPontos() =0;
+    ~Territorio();
 
     bool getConquistado() const;
+    int atualizaRondas();
 
     void setConquistado(bool newState);
+
 };
+
+class TerritorioInicial : public Territorio {
+    
+public:
+    TerritorioInicial();
+    TerritorioInicial* clone() const;
+    int getPontos(){ return 0;};
+    
+    int getProdutos(){return 1;};
+    int getOuro(){ return 1;};
+};
+
 
 #endif

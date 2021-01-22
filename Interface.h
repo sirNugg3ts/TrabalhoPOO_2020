@@ -20,12 +20,15 @@ using namespace std;
 
 class Interface {
 private:
-    int stage;
-    int turno;
-    int fase;
-    int ano;
 
+
+    
 public:
+
+    int static ano, turno;
+    int stage;
+    int menu;
+    int fase;
     explicit Interface(Mundo &);
 
     ~Interface();
@@ -35,17 +38,16 @@ public:
 private:
     void processaFicheiro(const string &nomeFicheiro, Mundo &mundo);
 
-    void apresentaListaComandos() const;
+    void apresentaListaComandos(int menu);
 
     int processaComando(Mundo &mundo, Imperio &imperio);
 
     void processaComandoDoFicheiro(istringstream &iss, Mundo &mundo);
 
     int processaComandoJogo(Mundo &mundo, Imperio &imperio);
-
+    void forcaEventos(int evento, Mundo& mundo, Imperio& imperio);
     void checkIfEndgame(Mundo&,Imperio&);
-
-    void passaTurno();
+    void passaTurno(Imperio& imperio);
 };
 
 #endif
